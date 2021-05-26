@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
@@ -20,6 +21,7 @@ namespace FirstBlazorHybridApp
 
                     // Register app-specific services
                     services.AddSingleton<CounterState>();
+                    services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:44346") });
                 })
                 .UseWebRoot("wwwroot");
 

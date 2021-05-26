@@ -1,6 +1,6 @@
 @page "/fetchdata"
 @using System.Text.Json
-@inject Microsoft.Extensions.FileProviders.IFileProvider FileProvider
+@inject HttpClient _httpClient
 
 <h1>Weather forecast</h1>
 
@@ -43,25 +43,6 @@ else
         // The static web asset is loaded from the wwwroot from _content/<AssemblyOrNugetName>/weather.json
         // see https://docs.microsoft.com/aspnet/core/razor-pages/ui-class?view=aspnetcore-3.1&tabs=visual-studio#consume-content-from-a-referenced-rcl for more info
 
-        var fileInfo = FileProvider.GetFileInfo("_content/FirstBlazorHybridApp/weather.json");
-
-        if (fileInfo != null && fileInfo.Exists)
-        {
-            using (var stream = fileInfo.CreateReadStream())
-            {
-                forecasts = await JsonSerializer.DeserializeAsync<WeatherForecast[]>(stream, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-            }
-        }
-    }
-
-    public class WeatherForecast
-    {
-        public DateTime Date { get; set; }
-
-        public int TemperatureC { get; set; }
-
-        public string Summary { get; set; }
-
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        forecasts = await _httpClient.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
     }
 }
