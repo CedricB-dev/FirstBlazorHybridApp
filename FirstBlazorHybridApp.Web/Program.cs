@@ -21,7 +21,7 @@ namespace FirstBlazorHybridApp.Web
 
             //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddSingleton<CounterState>();
-            //builder.Services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot")));
+            //builder.Services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Path.Combine(builder.HostEnvironment., @"wwwroot")));
             await builder.Build().RunAsync();
         }
     }
