@@ -24,4 +24,8 @@
   <ItemGroup>
     <ProjectReference Include="..\FirstBlazorHybridApp.Shared\FirstBlazorHybridApp.Shared.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\bootstrap\" />
+  </ItemGroup>
 </Project>

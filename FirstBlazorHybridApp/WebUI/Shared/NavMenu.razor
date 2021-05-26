@@ -1,4 +1,30 @@
-<div class="top-row pl-4 navbar navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">
+            <img src="_content/FirstBlazorHybridApp/W.svg" style="color: red;" alt="" width="30" height="24">ahou
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="oi oi-home" aria-hidden="true"></span> Home
+                </NavLink>
+                <NavLink class="nav-link" href="counter">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Counter
+                </NavLink>
+                <NavLink class="nav-link" href="fetchdata">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+                </NavLink>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+@*<div class="top-row pl-4 navbar navbar-dark">
 	<a class="navbar-brand" href="">My Hybrid App</a>
 	<button class="navbar-toggler" @onclick="ToggleNavMenu">
 		<span class="navbar-toggler-icon"></span>
@@ -23,15 +49,15 @@
 			</NavLink>
 		</li>
 	</ul>
-</div>
+</div>*@
 
 @code {
-	private bool collapseNavMenu = true;
+@*	private bool collapseNavMenu = true;
 
 	private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
 	private void ToggleNavMenu()
 	{
 		collapseNavMenu = !collapseNavMenu;
-	}
+	}*@
 }
