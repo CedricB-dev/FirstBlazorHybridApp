@@ -17,9 +17,9 @@ namespace FirstBlazorHybridApp.Web
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<WebUI.App>("#app");
+            builder.RootComponents.Add<FirstBlazorHybridApp.WebUI.App>("#app");
 
-            //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:44346") });
             builder.Services.AddSingleton<CounterState>();
             //builder.Services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Path.Combine(builder.HostEnvironment., @"wwwroot")));
             await builder.Build().RunAsync();
